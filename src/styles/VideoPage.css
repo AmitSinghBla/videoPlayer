@@ -1,0 +1,31 @@
+.video-page {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .video-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .video-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .video-item h3 {
+    margin-bottom: 10px;
+  }
+  
+  .video-item a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .video-item a:hover {
+    text-decoration: underline;
+  }
+  
