@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 const videoData = {
     Folder1: [
-        { id: 1, title: 'Video 1', thumbnail: 'https://via.placeholder.com/200x120', videoUrl: 'https://www.example.com/video1' },
+        { id: 1, title: 'Video 1', thumbnail: 'https://via.placeholder.com/200x120', videoUrl: '/videos/M09-1317.mp4' },
         { id: 2, title: 'Video 2', thumbnail: 'https://via.placeholder.com/200x120', videoUrl: 'https://www.example.com/video2' },
         { id: 3, title: 'Video 3', thumbnail: 'https://via.placeholder.com/200x120', videoUrl: 'https://www.example.com/video3' },
         { id: 4, title: 'Video 4', thumbnail: 'https://via.placeholder.com/200x120', videoUrl: 'https://www.example.com/video4' },
@@ -21,10 +21,10 @@ const videoData = {
 
 const VideoPage = () => {
   const { folderName } = useParams();
-
   const videos = videoData[folderName];
   const [selectedVideo, setSelectedVideo] = useState(null);
   const handleVideoClick = (videoUrl) => {
+    console.log("videoUrl", videoUrl);
     setSelectedVideo(videoUrl);
   };
 
