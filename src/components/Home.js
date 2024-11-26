@@ -1,5 +1,4 @@
 import FolderIcon from "./FolderIcon";
-import testImage from '../images/test.png'
 import '../styles/Home.css'
 
 
@@ -12,21 +11,21 @@ function Home() {
         <div className="App">
         <div className="folder-container">
         <FolderIcon 
-          image={testImage} 
+          image="/images/test.png" 
           altText="Folder 1" 
-          folderName="Folder 1"
+          folderName="Folder1"
         //   onClick={() => handleFolderClick("Folder 1")}
         />
         <FolderIcon 
-          image={testImage} 
+          image="/images/test.png" 
           altText="Folder 2" 
-          folderName="Folder 2"
+          folderName="Folder2"
         //   onClick={() => handleFolderClick("Folder 2")}
         />
         <FolderIcon 
-          image={testImage} 
+          image="/images/test.png" 
           altText="Folder 3" 
-          folderName="Folder 3"
+          folderName="Folder3"
         //   onClick={() => handleFolderClick("Folder 3")}
         />
       </div>
