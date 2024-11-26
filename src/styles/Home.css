@@ -4,7 +4,10 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
+    background-image: url('../../public/images/homepage.jpeg'); /* Update the path to your image */
+    background-size: cover; /* This will cover the entire area */
+    background-position: center;
     padding: 10px;
     box-sizing: border-box;
   }
