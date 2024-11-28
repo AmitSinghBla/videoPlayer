@@ -29,4 +29,27 @@
         transform: scale(1.05);
       }
   }
+
+
+  .folder-icon-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .folder-icon {
+    position: relative;
+  }
+  
+  .folder-icon-overlay {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+  }
+  
+  .folder-icon-lock {
+    width: 24px; /* Adjust size */
+    height: 24px; /* Adjust size */
+    fill: #fff; /* Change the color if needed */
+  }
   

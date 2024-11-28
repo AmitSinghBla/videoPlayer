@@ -1,6 +1,25 @@
 .video-page {
     padding: 20px;
     text-align: center;
+    /* background-color: #9B111E;
+    background-image: url('../../public/images/user_page.jpg');  */
+    background-size: cover; 
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    /* background-attachment: fixed */
+  }
+
+  html, body {
+    height: 100%; /* Make sure html and body take up the full height */
+    margin: 0; /* Remove default margin */
+    overflow-x: hidden;
+    background: linear-gradient(to right, #9B111E, #D1006C); /* Deep Burgundy background color */
+    background-attachment: fixed; /* Keep the background fixed when scrolling */
+    background-size: cover; /* Make the background cover the entire screen */
+    background-position: center center; /* Center the background image */
+    background-size: cover;
   }
   
   .video-list {
@@ -9,12 +28,9 @@
     gap: 20px;
   }
   
-  .video-item {
-    padding: 10px;
-    border: 1px solid #ddd;
+  /* .video-item {
     border-radius: 8px;
-    background-color: #f9f9f9;
-  }
+  } */
   
   .video-item h3 {
     margin-bottom: 10px;
@@ -28,4 +44,74 @@
   .video-item a:hover {
     text-decoration: underline;
   }
+
+  .video-thumbnail {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    cursor: pointer; /* This will ensure the image covers the area without stretching */
+    transition: transform 0.2s ease-in-out; /* Smooth transition */
+  }
+
+  .video-thumbnail:hover {
+    transform: scale(1.15); /* Scale down to 95% */
+  }
+
+  .video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it is above other content */
+}
+
+.video-player {
+    background-color: white; 
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; 
+}
+
+.video-player button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #000000; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+}
+
+.video-player button:hover {
+  background-color: #ff1a1a; /* Darker red on hover */
+}
+
+@media (max-width: 768px) {
+  .video-player {
+      max-width: 95%; /* Slightly larger max-width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .video-player {
+      width: 100vw; /* Full width of the viewport */
+      height: 56.25vw; /* 16:9 aspect ratio */
+      max-height: 100vh; /* Limit the height to the viewport height */
+      border-radius: 0; /* Remove border radius for full width effect */
+  }
+
+  .video-player iframe {
+      width: 100%;
+      height: 100%; /* Fill the entire player */
+      border-radius: 0; /* Ensure the iframe matches the player */
+  }
+}
   
