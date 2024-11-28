@@ -1,10 +1,25 @@
 .video-page {
     padding: 20px;
     text-align: center;
-    background-image: url('../../public/images/user_page.jpg'); /* Update the path to your image */
-    background-size: cover; /* This will cover the entire area */
+    /* background-color: #9B111E;
+    background-image: url('../../public/images/user_page.jpg');  */
+    background-size: cover; 
     background-position: center;
-    height: 94.5vh;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    /* background-attachment: fixed */
+  }
+
+  html, body {
+    height: 100%; /* Make sure html and body take up the full height */
+    margin: 0; /* Remove default margin */
+    overflow-x: hidden;
+    background: linear-gradient(to right, #9B111E, #D1006C); /* Deep Burgundy background color */
+    background-attachment: fixed; /* Keep the background fixed when scrolling */
+    background-size: cover; /* Make the background cover the entire screen */
+    background-position: center center; /* Center the background image */
+    background-size: cover;
   }
   
   .video-list {

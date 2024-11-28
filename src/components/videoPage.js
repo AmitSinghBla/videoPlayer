@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/VideoPage.css';
 
 const videoData = {
     Folder1: [
-        { id: 1, title: 'Video 1', thumbnail: '/thumbnail/1.png', videoUrl: '/videos/1.mp4' },
-        { id: 2, title: 'Video 2', thumbnail: '/thumbnail/2.png', videoUrl: '/videos/2.mp4' },
-        { id: 3, title: 'Video 3', thumbnail: '/thumbnail/3.png', videoUrl: '/videos/3.mp4' },
-        { id: 4, title: 'Video 4', thumbnail: '/thumbnail/4.png', videoUrl: '/videos/4.mp4' },
-        { id: 5, title: 'Video 5', thumbnail: '/thumbnail/5.png', videoUrl: '/videos/5.mp4' },
+        { id: 0, title: 'Video 1', videoUrl: '/videos/M09-1317.mp4' },
+        { id: 1, title: 'Video 2', videoUrl: '/videos/M09-1317.mp4' },
+        { id: 2, title: 'Video 3', videoUrl: '/videos/M09-1317.mp4' },
+        { id: 3, title: 'Video 4', videoUrl: '/videos/M09-1317.mp4' },
+        { id: 4, title: 'Video 5', videoUrl: '/videos/M09-1317.mp4' },
+        { id: 5, title: 'Video 1', videoUrl: '/videos/M09-1317.mp4' },
+        { id: 6, title: 'Video 2', videoUrl: '/videos/M09-1317.mp4' },
+        { id: 7, title: 'Video 3', videoUrl: '/videos/M09-1317.mp4' },
+        { id: 8, title: 'Video 4', videoUrl: '/videos/M09-1317.mp4' },
+        { id: 9, title: 'Video 5', videoUrl: '/videos/M09-1317.mp4' },
+        
       ],
   Folder2: [
     { title: 'Video A', url: 'https://www.example.com/videoA' },
@@ -24,9 +30,26 @@ const VideoPage = () => {
   const { folderName } = useParams();
   const videos = videoData[folderName];
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const videoRefs = useRef({});
   const handleVideoClick = (videoUrl) => {
     console.log("videoUrl", videoUrl);
     setSelectedVideo(videoUrl);
+  };
+
+  const handleMouseEnter = (videoUrl, videoId) => {
+    // Play the video on hover
+    const videoElement = videoRefs.current[videoId];
+    if (videoElement) {
+      videoElement.play();
+    }
+  };
+
+  const handleMouseLeave = (videoId) => {
+    // Pause the video when hover ends
+    const videoElement = videoRefs.current[videoId];
+    if (videoElement) {
+      videoElement.pause();
+    }
   };
 
   const closeVideoPlayer = () => {
@@ -35,12 +58,25 @@ const VideoPage = () => {
 
   return (
     <div className="video-page">
-    <h2 style={{ color: 'white', fontFamily: 'Roboto Slab, serif' }}>{folderName} Videos</h2>
+    {/* <h2 style={{ color: 'white', fontFamily: 'Roboto Slab, serif' }}>{folderName} Videos</h2> */}
     
     <div className="video-list">
-      {videos ? videos.map((video) => (
-        <div key={video.id} className="video-item" onClick={() => handleVideoClick(video.videoUrl)}>
-          <img src={video.thumbnail} alt={video.title} className="video-thumbnail" />
+      {videos ? videos.map((video,index) => (
+        <div key={video.id} className="video-item" 
+        onClick={() => handleVideoClick(video.videoUrl)}
+        onMouseEnter={()=>handleMouseEnter(video.url,index)}
+        onMouseLeave={()=>handleMouseLeave(video.id || index)}
+        >
+           <video
+           className="video-thumbnail"
+                ref={(el) => (videoRefs.current[video.id || index] = el)}
+                src={video.videoUrl}
+                width="200"
+                height="112"
+                muted
+                preload="metadata"
+                loop
+              />
         </div>
       )): <h5>No videos Avaialable</h5>}
     </div>
