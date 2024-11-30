@@ -1,18 +1,34 @@
 // src/FolderIcon.js
-import React from 'react';
+import React, {useState} from 'react';
 import '../styles/FolderIcon.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const FolderIcon = ({ image, altText, folderName }) => {
-  let loggedIn = true;
+  const navigate = useNavigate();
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
+
+  // let loggedIn = true;
   const handleClick = (e) => {
     if (!loggedIn) {
       e.preventDefault();
+      setShowDialog(true); 
     }
   };
+
+  const handleLoginClick = () => navigate('/login');
+
+  const closeDialog = () => setShowDialog(false);
+
+  const handleOverlayClick = (e) => {
+    if (e.target.className === 'dialog-overlay') {
+      closeDialog(); // Close dialog if clicked on the overlay
+    }
+  };
+
   return (
-    <Link to={`/folder/${folderName}`} className="folder-icon-container"
-    onClick={handleClick}>
+    <>
+    <Link to={`/folder/${folderName}`} className="folder-icon-container" onClick={handleClick}>
       <div className="folder-icon">
         <img src={image} alt={altText} />
         <div className="folder-icon-overlay">
@@ -39,6 +55,18 @@ const FolderIcon = ({ image, altText, folderName }) => {
         </div>
       </div>
     </Link>
+
+    {showDialog && (
+        <div className="dialog-overlay"  onClick={handleOverlayClick}>
+          <div className="dialog-box">
+          <h2>Subscription on Hold!</h2>
+            <p>Make payment to continue watching.</p>
+            <button onClick={handleLoginClick}>Log In</button>
+            <button>Make Payment</button>
+          </div>
+        </div>
+      )}
+      </>
   );
 };
 

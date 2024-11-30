@@ -4,16 +4,16 @@ import '../styles/VideoPage.css';
 
 const videoData = {
     Folder1: [
-        { id: 0, title: 'Video 1', videoUrl: '/videos/M09-1317.mp4' },
-        { id: 1, title: 'Video 2', videoUrl: '/videos/M09-1317.mp4' },
-        { id: 2, title: 'Video 3', videoUrl: '/videos/M09-1317.mp4' },
-        { id: 3, title: 'Video 4', videoUrl: '/videos/M09-1317.mp4' },
-        { id: 4, title: 'Video 5', videoUrl: '/videos/M09-1317.mp4' },
-        { id: 5, title: 'Video 1', videoUrl: '/videos/M09-1317.mp4' },
-        { id: 6, title: 'Video 2', videoUrl: '/videos/M09-1317.mp4' },
-        { id: 7, title: 'Video 3', videoUrl: '/videos/M09-1317.mp4' },
-        { id: 8, title: 'Video 4', videoUrl: '/videos/M09-1317.mp4' },
-        { id: 9, title: 'Video 5', videoUrl: '/videos/M09-1317.mp4' },
+        { id: 0, title: 'Video 1', videoUrl: '/videos/1.mp4' },
+        { id: 1, title: 'Video 2', videoUrl: '/videos/2.mp4' },
+        { id: 2, title: 'Video 3', videoUrl: '/videos/3.mp4' },
+        { id: 3, title: 'Video 4', videoUrl: '/videos/4.mp4' },
+        { id: 4, title: 'Video 5', videoUrl: '/videos/5.mp4' },
+        { id: 5, title: 'Video 1', videoUrl: '/videos/1.mp4' },
+        { id: 6, title: 'Video 2', videoUrl: '/videos/1.mp4' },
+        { id: 7, title: 'Video 3', videoUrl: '/videos/1.mp4' },
+        { id: 8, title: 'Video 4', videoUrl: '/videos/1.mp4' },
+        { id: 9, title: 'Video 5', videoUrl: '/videos/1.mp4' },
         
       ],
   Folder2: [
