@@ -53,3 +53,54 @@
     fill: #fff; /* Change the color if needed */
   }
   
+  .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .dialog-box {
+    width: 300px;
+    margin-top: -370px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dialog-box p {
+    margin-bottom: 20px;
+  }
+  
+  .dialog-box button {
+    margin: 5px;
+    padding: 10px 10px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .dialog-box button:hover {
+    /* background-color: #0056b3; */
+    background-color: #ff1a1a; 
+  }
+
+  @media (max-width: 768px) {
+    .dialog-box {
+      margin-top: 10px;
+      width: 90%; /* Take more width on smaller screens */
+      padding: 15px; /* Adjust padding */
+      font-size: 14px; /* Adjust font size */
+    }
+  }
+  
